@@ -10,19 +10,48 @@ package binaryGenerator;
 public class BinaryGenerator {
     private String userInputStringInLowerCase;
 
-    public BinaryGenerator(String userInputStringInLowerCase) {
+    public BinaryGenerator(String userInputStringInLowerCase)
+    {
+
         this.userInputStringInLowerCase = userInputStringInLowerCase;
+
     }
 
     public String getUserInputStringInLowerCase() {
         return userInputStringInLowerCase;
     }
 
-    public void setUserInputStringInLowerCase(String userInputStringInLowerCase) {
+    public void setUserInputStringInLowerCase(String userInputStringInLowerCase)
+    {
         this.userInputStringInLowerCase = userInputStringInLowerCase;
     }
 
-    public String convertNormalStringToBinaryString() {
-        return "";
+    public String convertNormalStringToBinaryString()
+    {
+        char[] characterArray = userInputStringInLowerCase.toCharArray();
+        StringBuilder sb = new StringBuilder();
+
+
+        for (int i = 0; i <userInputStringInLowerCase.length() ; i++)
+        {
+            if(characterArray[i]==' ')
+            {
+                sb= sb.append("01000000 ");
+            }
+            else {
+                int ascii = characterArray[i];
+                ascii = ascii - 'a';
+                String binaryString = Integer.toBinaryString(ascii);
+                int length = binaryString.length();
+                int remainingBits = 8 - length;
+                String missingZeroes = "0".repeat(remainingBits);
+                sb=sb.append(missingZeroes + binaryString + " ");
+
+            }
+
+        }
+        String str = sb.toString();
+        return str;
+
     }
 }
