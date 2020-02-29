@@ -28,7 +28,9 @@ public class BinaryGenerator {
 
     public String convertNormalStringToBinaryString()
     {
+
         char[] characterArray = userInputStringInLowerCase.toCharArray();
+
         StringBuilder sb = new StringBuilder();
 
 
@@ -40,7 +42,7 @@ public class BinaryGenerator {
             }
             else {
                 int ascii = characterArray[i];
-                ascii = ascii - 'a';
+
                 String binaryString = Integer.toBinaryString(ascii);
                 int length = binaryString.length();
                 int remainingBits = 8 - length;

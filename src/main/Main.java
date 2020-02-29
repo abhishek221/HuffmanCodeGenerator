@@ -19,13 +19,15 @@ public class Main {
         String userInput = scanner.nextLine().trim();
         BinaryGenerator binaryGenerator = new BinaryGenerator(userInput);
         String binaryString = binaryGenerator.convertNormalStringToBinaryString();
-        HuffmanGenerator huffmanGenerator = new HuffmanGenerator(userInput);
-        String huffmanString = huffmanGenerator.convertNormalStringToHuffmanString();
+        //HuffmanGenerator huffmanGenerator = new HuffmanGenerator(userInput);
+        //String huffmanString = huffmanGenerator.convertNormalStringToHuffmanString();
         int lengthOfBinaryString = binaryString.length();
-        int lengthOfHuffmanString = huffmanString.length();
+        lengthOfBinaryString= lengthOfBinaryString-userInput.length();
+        //int lengthOfHuffmanString = huffmanString.length();
         System.out.println("The binary string has " + lengthOfBinaryString + " characters.");
-        System.out.println("The huffman string has " + lengthOfHuffmanString + " characters.");
-        System.out.println("Compression Ratio (Huffman/Binary): " + (lengthOfHuffmanString / lengthOfBinaryString) + "%");
+        //System.out.println("The huffman string has " + lengthOfHuffmanString + " characters.");
+        //System.out.println("Compression Ratio (Huffman/Binary): " + (lengthOfHuffmanString / lengthOfBinaryString) + "%");
+        System.out.println(binaryString);
         scanner.close();
     }
 }
