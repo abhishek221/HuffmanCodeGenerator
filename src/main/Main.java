@@ -17,17 +17,21 @@ public class Main {
         System.out.println("Please enter a string value: ");
         final Scanner scanner = new Scanner(System.in);
         String userInput = scanner.nextLine().trim();
+        userInput= userInput.toLowerCase();
         BinaryGenerator binaryGenerator = new BinaryGenerator(userInput);
         String binaryString = binaryGenerator.convertNormalStringToBinaryString();
-        //HuffmanGenerator huffmanGenerator = new HuffmanGenerator(userInput);
-        //String huffmanString = huffmanGenerator.convertNormalStringToHuffmanString();
+        HuffmanGenerator huffmanGenerator = new HuffmanGenerator(userInput);
+        String huffmanString = huffmanGenerator.convertNormalStringToHuffmanString();
         int lengthOfBinaryString = binaryString.length();
         lengthOfBinaryString= lengthOfBinaryString-userInput.length();
-        //int lengthOfHuffmanString = huffmanString.length();
+        int lengthOfHuffmanString = huffmanString.length();
+        lengthOfHuffmanString = lengthOfHuffmanString- userInput.length();
         System.out.println("The binary string has " + lengthOfBinaryString + " characters.");
-        //System.out.println("The huffman string has " + lengthOfHuffmanString + " characters.");
-        //System.out.println("Compression Ratio (Huffman/Binary): " + (lengthOfHuffmanString / lengthOfBinaryString) + "%");
+        System.out.println("The huffman string has " + lengthOfHuffmanString + " characters.");
+        double compressionRate = (double)lengthOfHuffmanString/lengthOfBinaryString;
+        System.out.println("Compression Ratio (Huffman/Binary): " + compressionRate + "%");
         System.out.println(binaryString);
+        System.out.println(huffmanString);
         scanner.close();
     }
 }
